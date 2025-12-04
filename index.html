@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>Unity WebGL Player | Queen</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;                /* No scroll */
+    }
+
+    #unity-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #unity-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      touch-action: none;
+    }
+
+    #unity-loading-bar {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #unity-fullscreen-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      padding: 12px 18px;
+      font-size: 16px;
+      background: #fff;
+      border-radius: 8px;
+      border: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="unity-container">
+    <canvas id="unity-canvas"></canvas>
+
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+
+    <button id="unity-fullscreen-button">Fullscreen</button>
+  </div>
+
+
+  <!-- UNITY SCRIPT -->
+  <script>
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingBar = document.querySelector("#unity-loading-bar");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+
+    function unityShowBanner(msg, type) {
+      console.log(msg);
+    }
+
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/Queen.loader.js";
+
+    const config = {
+      dataUrl: buildUrl + "/Queen.data",
+      frameworkUrl: buildUrl + "/Queen.framework.js",
+      codeUrl: buildUrl + "/Queen.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "gameloft",
+      productName: "Queen",
+      productVersion: "1.0.6",
+      showBanner: unityShowBanner,
+      devicePixelRatio: 1
+    };
+
+    loadingBar.style.display = "block";
+
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        progressBarFull.style.width = (progress * 100) + "%";
+      }).then((unityInstance) => {
+
+        loadingBar.style.display = "none";
+
+        // Desktop + Android fullscreen button
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+
+    document.body.appendChild(script);
+  </script>
+
+
+  <!-- iOS FIX: FULLSCREEN bằng CSS + JS -->
+  <script>
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    function resizeCanvasIOS() {
+      // iOS viewport thực tế
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+    }
+
+    if (isIOS) {
+      // Ẩn fullscreen button
+      fullscreenButton.style.display = "none";
+
+      // Fix initial size
+      resizeCanvasIOS();
+
+      // Fix khi rotate, show/hide URL bar...
+      window.addEventListener("resize", resizeCanvasIOS);
+      window.addEventListener("orientationchange", resizeCanvasIOS);
+
+      // Ngăn scroll bounce
+      document.body.style.position = "fixed";
+      document.body.style.width = "100vw";
+      document.body.style.height = "100vh";
+      document.body.style.overflow = "hidden";
+    }
+  </script>
+
+</body>
+</html>
