@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1982298683
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a2f11427076ae7c742c68e0a0539fcf5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/SBTL/PIANO-SBTL.wav
+- Assets/MusicBackup/SBTL/GUITAR-SBTL.wav
+- Assets/MusicBackup/SBTL/VOCAL-SBTL.wav
+- Assets/MusicBackup/SBTL/DRUMS-SBTL.wav
+- Assets/MusicBackup/SBTL/BASS-SBTL.wav
+Dependencies: []

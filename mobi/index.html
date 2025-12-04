@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>Unity WebGL Player | Queen</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    #unity-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+    }
+
+    /* =======================
+       BACKGROUND
+       ======================= */
+    #loading-background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("background.jpg") center center / cover no-repeat;
+      z-index: 1;
+    }
+
+    /* =======================
+       LOADING WRAPPER
+       ======================= */
+    #unity-loading-wrapper {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      pointer-events: none;
+      color: #fff;
+    }
+
+    #loading-spinner {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 25px;
+      background: url("spinner.png") center center / contain no-repeat;
+      animation: spin 1.1s linear infinite;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* =======================
+       PROGRESS BAR
+       ======================= */
+    #unity-progress-bar-empty {
+      width: 250px;
+      height: 18px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #unity-progress-bar-full {
+      height: 100%;
+      width: 0%;
+      background: white;
+      border-radius: 10px;
+      transition: width 0.2s linear;
+    }
+
+    /* =======================
+       CANVAS
+       ======================= */
+    #unity-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      touch-action: none;
+      z-index: 0;
+    }
+
+    /* =======================
+       FULLSCREEN BUTTON
+       ======================= */
+    #unity-fullscreen-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      padding: 12px 18px;
+      font-size: 16px;
+      background: #fff;
+      border-radius: 8px;
+      border: none;
+
+      z-index: 9999;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="unity-container">
+
+    <div id="loading-background"></div>
+
+    <!-- LOADING UI -->
+    <div id="unity-loading-wrapper">
+      <div id="loading-spinner"></div>
+
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+
+    <canvas id="unity-canvas"></canvas>
+
+    <button id="unity-fullscreen-button">Fullscreen</button>
+  </div>
+
+
+  <!-- =======================
+       UNITY SCRIPT + FAKE LOAD
+       ======================= -->
+  <script>
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingWrapper = document.querySelector("#unity-loading-wrapper");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+
+    function unityShowBanner(msg, type) {
+      console.log(msg);
+    }
+
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/Queen.loader.js";
+
+    const config = {
+      dataUrl: buildUrl + "/Queen.data",
+      frameworkUrl: buildUrl + "/Queen.framework.js",
+      codeUrl: buildUrl + "/Queen.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "gameloft",
+      productName: "Queen",
+      productVersion: "1.0.6",
+      showBanner: unityShowBanner,
+      devicePixelRatio: 1
+    };
+
+    // =======================
+    // FAKE PROGRESS
+    // =======================
+    let fakeProgress = 0;
+    let realProgress = 0;
+
+    const fakeInterval = setInterval(() => {
+      fakeProgress += (90 - fakeProgress) * 0.03;
+      updateProgressBar();
+      if (fakeProgress >= 89) clearInterval(fakeInterval);
+    }, 50);
+
+    function updateProgressBar() {
+      const p = Math.max(fakeProgress, realProgress) + "%";
+      progressBarFull.style.width = p;
+    }
+
+    // =======================
+    // LOAD UNITY
+    // =======================
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+
+        realProgress = progress * 100;
+
+        if (realProgress > 0.1) {
+          clearInterval(fakeInterval);
+        }
+
+        updateProgressBar();
+      }).then((unityInstance) => {
+
+        progressBarFull.style.width = "100%";
+
+        setTimeout(() => {
+          loadingWrapper.style.display = "none";
+        }, 250);
+
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+
+    document.body.appendChild(script);
+  </script>
+
+
+  <!-- =======================
+       iOS FULLSCREEN FIX
+       ======================= -->
+  <script>
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isIOS) {
+
+      fullscreenButton.style.display = "none";
+
+      function resizeCanvasIOS() {
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+      }
+
+      resizeCanvasIOS();
+
+      window.addEventListener("resize", resizeCanvasIOS);
+      window.addEventListener("orientationchange", resizeCanvasIOS);
+
+      document.body.style.position = "fixed";
+      document.body.style.width = "100vw";
+      document.body.style.height = "100vh";
+      document.body.style.overflow = "hidden";
+    }
+  </script>
+
+</body>
+</html>

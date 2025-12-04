@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 213504083
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5f60ddf79fe8bab99650dc901bc7e7c1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/DSMN/GUITAR-DSMN.wav
+- Assets/MusicBackup/DSMN/BASS-DSMN.wav
+- Assets/MusicBackup/DSMN/DRUMS-DSMN.wav
+- Assets/MusicBackup/DSMN/PIANO-DSMN.wav
+- Assets/MusicBackup/DSMN/VOCAL-DSMN.wav
+Dependencies: []

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 554312676
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c43c4b5adf6870fe9037b83014b853ee
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/BORH/DRUMS-BORH.wav
+- Assets/MusicBackup/BORH/PIANO-BORH.wav
+- Assets/MusicBackup/BORH/BASS-BORH.wav
+- Assets/MusicBackup/BORH/GUITAR-BORH.wav
+- Assets/MusicBackup/BORH/VOCAL-BORH.wav
+Dependencies: []

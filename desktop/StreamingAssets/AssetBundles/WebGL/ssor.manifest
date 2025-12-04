@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3047481969
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 371ea7c6a98ad16ccfd62c0811ae45db
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/SSOR/PIANO-SSOR.wav
+- Assets/MusicBackup/SSOR/VOCALS-SSOR.wav
+- Assets/MusicBackup/SSOR/BASS-SSOR.wav
+- Assets/MusicBackup/SSOR/GUITAR-SSOR.wav
+- Assets/MusicBackup/SSOR/DRUMS-SSOR.wav
+Dependencies: []

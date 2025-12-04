@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3872533577
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: daeef277a4554f690e65b88145f3ca2e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/AKOM/KEYS-AKOM.wav
+- Assets/MusicBackup/AKOM/BASS-AKOM.wav
+- Assets/MusicBackup/AKOM/GUITAR-AKOM.wav
+- Assets/MusicBackup/AKOM/DRUMS-AKOM.wav
+- Assets/MusicBackup/AKOM/VOCAL-AKOM.wav
+Dependencies: []

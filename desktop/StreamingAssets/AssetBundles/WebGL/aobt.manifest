@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 2180784996
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 75dea91ee1d9ccded64d9d6388231b41
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/AOBT/VOCAL-AOBT.wav
+- Assets/MusicBackup/AOBT/BASS-AOBT.wav
+- Assets/MusicBackup/AOBT/DRUMS-AOBT.wav
+- Assets/MusicBackup/AOBT/GUITAR-AOBT.wav
+Dependencies: []

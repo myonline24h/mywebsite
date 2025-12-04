@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 768968204
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d22e224fd3766807ae0b087d45101e7f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/TYMD/BASS-TYMD.wav
+- Assets/MusicBackup/TYMD/DRUMS-TYMD.wav
+- Assets/MusicBackup/TYMD/VOCAL-TYMD.wav
+- Assets/MusicBackup/TYMD/GUITAR-TYMD.wav
+Dependencies: []

@@ -1,0 +1,107 @@
+ManifestFileVersion: 0
+CRC: 1015310621
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: common_texture
+      Dependencies: {}
+    Info_1:
+      Name: nihe
+      Dependencies: {}
+    Info_2:
+      Name: tymd
+      Dependencies: {}
+    Info_3:
+      Name: cltc
+      Dependencies: {}
+    Info_4:
+      Name: wembley
+      Dependencies:
+        Dependency_0: common_texture
+    Info_5:
+      Name: kiqu
+      Dependencies: {}
+    Info_6:
+      Name: sbtl
+      Dependencies: {}
+    Info_7:
+      Name: wwry
+      Dependencies: {}
+    Info_8:
+      Name: flash
+      Dependencies: {}
+    Info_9:
+      Name: unpr
+      Dependencies: {}
+    Info_10:
+      Name: dsmn
+      Dependencies: {}
+    Info_11:
+      Name: aobt
+      Dependencies: {}
+    Info_12:
+      Name: iilw
+      Dependencies: {}
+    Info_13:
+      Name: onvi
+      Dependencies: {}
+    Info_14:
+      Name: kyal
+      Dependencies: {}
+    Info_15:
+      Name: ssor
+      Dependencies: {}
+    Info_16:
+      Name: borh
+      Dependencies: {}
+    Info_17:
+      Name: watc
+      Dependencies: {}
+    Info_18:
+      Name: fbgi
+      Dependencies: {}
+    Info_19:
+      Name: iwtb
+      Dependencies: {}
+    Info_20:
+      Name: rgga
+      Dependencies: {}
+    Info_21:
+      Name: akom
+      Dependencies: {}
+    Info_22:
+      Name: hydepark
+      Dependencies:
+        Dependency_0: common_texture
+    Info_23:
+      Name: forum
+      Dependencies:
+        Dependency_0: common_texture
+    Info_24:
+      Name: summit
+      Dependencies:
+        Dependency_0: common_texture
+    Info_25:
+      Name: odeon
+      Dependencies:
+        Dependency_0: common_texture
+    Info_26:
+      Name: estadio
+      Dependencies:
+        Dependency_0: common_texture
+    Info_27:
+      Name: olympia
+      Dependencies:
+        Dependency_0: common_texture
+    Info_28:
+      Name: rio
+      Dependencies:
+        Dependency_0: common_texture
+    Info_29:
+      Name: budokan
+      Dependencies:
+        Dependency_0: common_texture
+    Info_30:
+      Name: rainbow
+      Dependencies:
+        Dependency_0: common_texture

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3742966495
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ae4f7438b10bb05a9324b883ffb1f9a1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/KIQU/PIANO-KIQU.wav
+- Assets/MusicBackup/KIQU/VOCAL-KIQU.wav
+- Assets/MusicBackup/KIQU/DRUMS-KIQU.wav
+- Assets/MusicBackup/KIQU/GUITAR-KIQU.wav
+- Assets/MusicBackup/KIQU/BASS-KIQU.wav
+Dependencies: []

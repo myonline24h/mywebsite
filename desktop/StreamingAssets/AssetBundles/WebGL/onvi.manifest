@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3447501873
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 67cf79d17983441e1a09bda54287367c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/ONVI/KEYS-ONVI.wav
+- Assets/MusicBackup/ONVI/VOCAL-ONVI.wav
+- Assets/MusicBackup/ONVI/DRUMS-ONVI.wav
+- Assets/MusicBackup/ONVI/BASS-ONVI.wav
+- Assets/MusicBackup/ONVI/GUITAR-ONVI.wav
+Dependencies: []

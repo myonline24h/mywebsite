@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3173072746
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 45639c9caa0c762ab2feb5d52da7e5bb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/FLASH/FX_DLG-FLASH.wav
+- Assets/MusicBackup/FLASH/BACK_TRACK-FLASH.wav
+- Assets/MusicBackup/FLASH/VOCAL-FLASH.wav
+- Assets/MusicBackup/FLASH/BASS-FLASH.wav
+Dependencies: []

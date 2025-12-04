@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 331623782
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 858ae94ec229d383d0c4235dc01dd872
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/IWTB/DRUMS-IWTB.wav
+- Assets/MusicBackup/IWTB/KEYS-IWTB.wav
+- Assets/MusicBackup/IWTB/VOCAL-IWTB.wav
+- Assets/MusicBackup/IWTB/BASS-IWTB.wav
+- Assets/MusicBackup/IWTB/GUITAR-IWTB.wav
+Dependencies: []

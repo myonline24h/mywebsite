@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3167595042
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 80d250666d455cd465341180b777697d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/IILW/DRUMS-IILW.wav
+- Assets/MusicBackup/IILW/GUITAR-IILW.wav
+- Assets/MusicBackup/IILW/BASS-IILW.wav
+- Assets/MusicBackup/IILW/PIANO_FX-IILW.wav
+- Assets/MusicBackup/IILW/VOCAL-IILW.wav
+Dependencies: []

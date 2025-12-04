@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 2676707244
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bd4722c2a28febcb4a137f71d8c764a4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/CLTC/GUITAR-CLTC.wav
+- Assets/MusicBackup/CLTC/DRUMS-CLTC.wav
+- Assets/MusicBackup/CLTC/BASS-CLTC.wav
+- Assets/MusicBackup/CLTC/VOCAL-CLTC.wav
+Dependencies: []
