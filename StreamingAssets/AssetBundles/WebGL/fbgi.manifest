@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 289781479
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 160d3b46b4558407088f7565c2bb22aa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/FBGI/VOCAL-FBGI.wav
+- Assets/MusicBackup/FBGI/BASS-FBGI.wav
+- Assets/MusicBackup/FBGI/DRUMS-FBGI.wav
+- Assets/MusicBackup/FBGI/GUITAR-FBGI.wav
+Dependencies: []

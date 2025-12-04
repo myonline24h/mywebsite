@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 139531645
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c93e7f415b9066f8dc910fda9fab5a18
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/WATC/GUITAR-WATC.wav
+- Assets/MusicBackup/WATC/VOCAL-WATC.wav
+- Assets/MusicBackup/WATC/BASS-WATC.wav
+- Assets/MusicBackup/WATC/PIANO-WATC.wav
+- Assets/MusicBackup/WATC/DRUMS-WATC.wav
+Dependencies: []

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2402752623
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 39b3271e54c5c3bd7dd042df229c28fd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/NIHE/PIANO_ORGAN-NIHE.wav
+- Assets/MusicBackup/NIHE/VOCAL-NIHE.wav
+- Assets/MusicBackup/NIHE/GUITAR-NIHE.wav
+- Assets/MusicBackup/NIHE/DRUMS-NIHE.wav
+- Assets/MusicBackup/NIHE/BASS-NIHE.wav
+Dependencies: []

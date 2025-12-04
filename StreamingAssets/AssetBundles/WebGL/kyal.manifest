@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3911002560
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7c12b65c40215e61e5a2067c56f25283
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MusicBackup/KYAL/BASS-KYAL.wav
+- Assets/MusicBackup/KYAL/VOCALS-KYAL.wav
+- Assets/MusicBackup/KYAL/DRUMS-KYAL.wav
+- Assets/MusicBackup/KYAL/GUITAR-KYAL.wav
+- Assets/MusicBackup/KYAL/PERC-KYAL.wav
+Dependencies: []
