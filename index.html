@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,6 +17,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      touch-action: none;
     }
 
     #unity-container {
@@ -23,15 +25,13 @@
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
       background: #000;
+      overflow: hidden;
     }
 
-    /* ==============================
-       BACKGROUND IMAGE
-       ============================== */
+    /* =======================
+       BACKGROUND
+       ======================= */
     #loading-background {
       position: absolute;
       top: 0; left: 0;
@@ -41,24 +41,25 @@
       z-index: 1;
     }
 
-    /* ==============================
-       LOADING UI WRAPPER
-       ============================== */
+    /* =======================
+       LOADING WRAPPER
+       ======================= */
     #unity-loading-wrapper {
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       z-index: 2;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       pointer-events: none;
-      color: white;
+      color: #fff;
     }
 
-    /* Spinner */
     #loading-spinner {
       width: 80px;
       height: 80px;
@@ -72,16 +73,15 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* ==============================
+    /* =======================
        PROGRESS BAR
-       ============================== */
+       ======================= */
     #unity-progress-bar-empty {
       width: 250px;
       height: 18px;
       background: rgba(255,255,255,0.15);
       border-radius: 10px;
       overflow: hidden;
-      margin-top: 10px;
     }
 
     #unity-progress-bar-full {
@@ -92,7 +92,9 @@
       transition: width 0.2s linear;
     }
 
-    /* Canvas */
+    /* =======================
+       CANVAS
+       ======================= */
     #unity-canvas {
       position: absolute;
       top: 0; left: 0;
@@ -103,29 +105,32 @@
       z-index: 0;
     }
 
-    /* Fullscreen button */
+    /* =======================
+       FULLSCREEN BUTTON
+       ======================= */
     #unity-fullscreen-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 9999;
+
       padding: 12px 18px;
       font-size: 16px;
       background: #fff;
       border-radius: 8px;
       border: none;
-    }
-  </style>
 
+      z-index: 9999;
+    }
+
+  </style>
 </head>
 
 <body>
   <div id="unity-container">
-    
-    <!-- Background image -->
+
     <div id="loading-background"></div>
 
-    <!-- Loading UI -->
+    <!-- LOADING UI -->
     <div id="unity-loading-wrapper">
       <div id="loading-spinner"></div>
 
@@ -140,7 +145,9 @@
   </div>
 
 
-  <!-- UNITY SCRIPT -->
+  <!-- =======================
+       UNITY SCRIPT + FAKE LOAD
+       ======================= -->
   <script>
     const canvas = document.querySelector("#unity-canvas");
     const loadingWrapper = document.querySelector("#unity-loading-wrapper");
@@ -166,16 +173,46 @@
       devicePixelRatio: 1
     };
 
+    // =======================
+    // FAKE PROGRESS
+    // =======================
+    let fakeProgress = 0;
+    let realProgress = 0;
+
+    const fakeInterval = setInterval(() => {
+      fakeProgress += (90 - fakeProgress) * 0.03;
+      updateProgressBar();
+      if (fakeProgress >= 89) clearInterval(fakeInterval);
+    }, 50);
+
+    function updateProgressBar() {
+      const p = Math.max(fakeProgress, realProgress) + "%";
+      progressBarFull.style.width = p;
+    }
+
+    // =======================
+    // LOAD UNITY
+    // =======================
     const script = document.createElement("script");
     script.src = loaderUrl;
 
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
-        progressBarFull.style.width = (progress * 100) + "%";
+
+        realProgress = progress * 100;
+
+        if (realProgress > 0.1) {
+          clearInterval(fakeInterval);
+        }
+
+        updateProgressBar();
       }).then((unityInstance) => {
 
-        // Hide loading UI
-        loadingWrapper.style.display = "none";
+        progressBarFull.style.width = "100%";
+
+        setTimeout(() => {
+          loadingWrapper.style.display = "none";
+        }, 250);
 
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
@@ -190,17 +227,20 @@
   </script>
 
 
-  <!-- iOS FIX: FULLSCREEN bằng CSS + JS -->
+  <!-- =======================
+       iOS FULLSCREEN FIX
+       ======================= -->
   <script>
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    function resizeCanvasIOS() {
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-    }
-
     if (isIOS) {
+
       fullscreenButton.style.display = "none";
+
+      function resizeCanvasIOS() {
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+      }
 
       resizeCanvasIOS();
 
