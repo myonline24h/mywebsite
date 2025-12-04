@@ -214,9 +214,31 @@
           loadingWrapper.style.display = "none";
         }, 250);
 
-        fullscreenButton.onclick = () => {
+         fullscreenButton.onclick = async () => {
+
+          // 1) Request fullscreen Unity
           unityInstance.SetFullscreen(1);
+
+          // 2) Wait a moment for fullscreen to apply
+          setTimeout(async () => {
+
+            // 3) Check support
+            if (screen.orientation && screen.orientation.lock) {
+
+              try {
+                await screen.orientation.lock("landscape");
+                console.log("Orientation locked to landscape");
+              } catch (err) {
+                console.warn("Orientation lock failed:", err);
+              }
+
+            } else {
+              console.log("Orientation lock not supported in this browser");
+            }
+
+          }, 300);
         };
+
 
       }).catch((message) => {
         alert(message);
