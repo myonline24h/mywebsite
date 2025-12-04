@@ -221,12 +221,13 @@
 
           // 2) Wait a moment for fullscreen to apply
           setTimeout(async () => {
-
+            
             // 3) Check support
-            if (screen.orientation && screen.orientation.lock) {
+            var myScreenOrientation = window.screen.orientation;
+            if (myScreenOrientation && myScreenOrientation.lock) {
 
               try {
-                await screen.orientation.lock("landscape");
+                await myScreenOrientation.lock("landscape");
                 console.log("Orientation locked to landscape");
               } catch (err) {
                 console.warn("Orientation lock failed:", err);
@@ -236,7 +237,7 @@
               console.log("Orientation lock not supported in this browser");
             }
 
-          }, 300);
+          }, 1000);
         };
 
 
